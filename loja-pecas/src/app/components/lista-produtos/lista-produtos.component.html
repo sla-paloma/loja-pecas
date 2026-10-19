@@ -1,0 +1,37 @@
+<section class="container lista">
+  <div class="lista-topo">
+    <div>
+      <h2>Peças em destaque</h2>
+      <p>{{ produtosFiltrados().length }} produtos encontrados</p>
+    </div>
+    <input class="busca" type="search" placeholder="🔍 Buscar peça ou marca..." [(ngModel)]="busca" />
+  </div>
+
+  <div class="categorias">
+    <button
+      *ngFor="let cat of categorias()"
+      class="chip"
+      [class.ativo]="cat === categoriaAtiva()"
+      (click)="categoriaAtiva.set(cat)">
+      {{ cat }}
+    </button>
+  </div>
+
+  <div class="estado" *ngIf="carregando()">
+    <div class="spinner"></div>
+    <p>Carregando peças...</p>
+  </div>
+
+  <div class="estado" *ngIf="erro()">😕 Não foi possível carregar os produtos.</div>
+
+  <div class="grade" *ngIf="!carregando() && !erro()">
+    <app-produto-card
+      *ngFor="let p of produtosFiltrados(); trackBy: porId"
+      [produto]="p">
+    </app-produto-card>
+  </div>
+
+  <p class="vazio" *ngIf="!carregando() && !erro() && produtosFiltrados().length === 0">
+    Nenhuma peça encontrada para sua busca.
+  </p>
+</section>

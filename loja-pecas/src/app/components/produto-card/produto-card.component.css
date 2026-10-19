@@ -1,0 +1,44 @@
+.card {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: 0.25s;
+}
+.card:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(255, 106, 0, 0.12); }
+
+.card-imagem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 180px;
+  background: radial-gradient(circle at 50% 40%, #2a2a38, var(--bg-2));
+}
+.icone { font-size: 4.5rem; transition: 0.3s; }
+.card:hover .icone { transform: scale(1.12) rotate(-4deg); }
+
+.tag {
+  position: absolute;
+  top: 12px; left: 12px;
+  background: var(--verde);
+  color: #04210f;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+
+.card-corpo { padding: 16px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.categoria { color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; }
+.nome { font-weight: 600; font-size: 0.95rem; min-height: 46px; }
+.nome:hover { color: var(--primary); }
+
+.precos { display: flex; flex-direction: column; margin-top: auto; }
+.preco-pix { font-size: 1.5rem; color: var(--verde); }
+.pix-label { font-size: 0.75rem; color: var(--muted); }
+.precos small { color: var(--muted); margin-top: 4px; font-size: 0.78rem; }
+
+.sem-estoque { text-align: center; color: var(--muted); border: 1px dashed var(--borda); border-radius: 10px; padding: 11px; font-weight: 600; }

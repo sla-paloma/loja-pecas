@@ -1,0 +1,15 @@
+<div class="topo-aviso">🔥 10% OFF no PIX • Frete grátis acima de R$ 999 • 10x sem juros</div>
+
+<header class="header">
+  <div class="container header-conteudo">
+    <a routerLink="/" class="logo">Bit<span>Store</span></a>
+
+    <nav class="menu">
+      <a routerLink="/" routerLinkActive="ativo" [routerLinkActiveOptions]="{ exact: true }">Produtos</a>
+      <a routerLink="/carrinho" routerLinkActive="ativo">
+        🛒 Carrinho
+        <span class="badge" *ngIf="quantidade$ | async as qtd">{{ qtd }}</span>
+      </a>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,24 @@
+<article class="card">
+  <a [routerLink]="['/produto', produto.id]" class="card-imagem">
+    <span class="tag">-10% no PIX</span>
+    <span class="icone">{{ produto.icone }}</span>
+  </a>
+
+  <div class="card-corpo">
+    <small class="categoria">{{ produto.categoria }} • {{ produto.marca }}</small>
+    <a [routerLink]="['/produto', produto.id]" class="nome">{{ produto.nome }}</a>
+
+    <div class="precos">
+      <strong class="preco-pix">{{ produto.precoPix | currency: 'BRL' }}</strong>
+      <span class="pix-label">à vista no PIX</span>
+      <small>ou {{ produto.preco | currency: 'BRL' }} em 10x de {{ produto.preco / 10 | currency: 'BRL' }}</small>
+    </div>
+
+    <p class="sem-estoque" *ngIf="produto.estoque === 0; else comprar">Indisponível</p>
+    <ng-template #comprar>
+      <button class="btn btn-primario" (click)="adicionar()">
+        {{ adicionado() ? '✓ Adicionado' : 'Comprar' }}
+      </button>
+    </ng-template>
+  </div>
+</article>

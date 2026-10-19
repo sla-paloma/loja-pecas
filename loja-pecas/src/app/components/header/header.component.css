@@ -1,0 +1,46 @@
+.topo-aviso {
+  background: var(--primary);
+  color: #111;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 12px;
+}
+
+.header {
+  background: rgba(11, 11, 15, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--borda);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+.logo { font-size: 1.7rem; font-weight: 800; letter-spacing: -1px; }
+.logo span { color: var(--primary); }
+
+.menu { display: flex; gap: 8px; align-items: center; }
+.menu a {
+  padding: 8px 16px;
+  border-radius: 8px;
+  color: var(--muted);
+  font-weight: 600;
+  transition: 0.2s;
+}
+.menu a:hover, .menu a.ativo { color: var(--texto); background: var(--bg-2); }
+
+.badge {
+  background: var(--primary);
+  color: #fff;
+  border-radius: 99px;
+  padding: 1px 8px;
+  font-size: 0.75rem;
+  margin-left: 6px;
+}

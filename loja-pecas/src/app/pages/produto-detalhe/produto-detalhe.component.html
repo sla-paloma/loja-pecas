@@ -1,0 +1,47 @@
+<section class="container detalhe">
+  <nav class="migalha">
+    <a routerLink="/">Início</a> › <span>{{ produto()?.categoria ?? 'Produto' }}</span>
+  </nav>
+
+  <div class="estado" *ngIf="carregando()">
+    <div class="spinner"></div>
+    <p>Carregando produto...</p>
+  </div>
+
+  <div class="estado" *ngIf="!carregando() && !produto()">
+    <h2>Peça não encontrada 😕</h2>
+    <button class="btn btn-secundario" (click)="voltar()">Voltar para a loja</button>
+  </div>
+
+  <div class="detalhe-grid" *ngIf="produto() as p">
+    <div class="detalhe-imagem">{{ p.icone }}</div>
+
+    <div class="detalhe-info">
+      <small class="categoria">{{ p.categoria }} • {{ p.marca }}</small>
+      <h1>{{ p.nome }}</h1>
+      <p class="descricao">{{ p.descricao }}</p>
+
+      <div class="caixa-preco">
+        <span class="pix-label">À vista no PIX (10% OFF)</span>
+        <strong class="preco-pix">{{ p.precoPix | currency: 'BRL' }}</strong>
+        <small>ou {{ p.preco | currency: 'BRL' }} em 10x de {{ p.preco / 10 | currency: 'BRL' }} sem juros</small>
+      </div>
+
+      <p class="estoque" [class.baixo]="p.estoque <= 5">
+        {{ p.estoque === 0 ? 'Indisponível no momento' : p.estoque <= 5 ? 'Últimas ' + p.estoque + ' unidades!' : 'Em estoque' }}
+      </p>
+
+      <ul class="specs">
+        <li *ngFor="let spec of p.especificacoes">✔ {{ spec }}</li>
+      </ul>
+
+      <div class="acoes" *ngIf="p.estoque > 0">
+        <button class="btn btn-primario" (click)="comprarAgora()">Comprar agora</button>
+        <button class="btn btn-secundario" (click)="adicionar()">
+          {{ adicionado() ? '✓ Adicionado' : '🛒 Adicionar ao carrinho' }}
+        </button>
+      </div>
+      <button class="btn-voltar" (click)="voltar()">← Voltar para a loja</button>
+    </div>
+  </div>
+</section>

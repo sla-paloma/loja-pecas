@@ -1,0 +1,58 @@
+<section class="container pagina-carrinho">
+  <h1>Meu carrinho</h1>
+
+  <ng-container *ngIf="itens$ | async as itens">
+    <div class="carrinho-grid" *ngIf="itens.length > 0; else vazio">
+
+      <div class="lista-itens">
+        <article class="item" *ngFor="let item of itens">
+          <div class="item-icone">{{ item.produto.icone }}</div>
+
+          <div class="item-info">
+            <a [routerLink]="['/produto', item.produto.id]">{{ item.produto.nome }}</a>
+            <small>{{ item.produto.marca }} • {{ item.produto.preco | currency: 'BRL' }} un.</small>
+          </div>
+
+          <div class="quantidade">
+            <button (click)="alterar(item.produto.id, -1)">−</button>
+            <span>{{ item.quantidade }}</span>
+            <button (click)="alterar(item.produto.id, 1)" [disabled]="item.quantidade >= item.produto.estoque">+</button>
+          </div>
+
+          <strong class="item-preco">{{ item.produto.preco * item.quantidade | currency: 'BRL' }}</strong>
+          <button class="remover" (click)="remover(item.produto.id)" title="Remover">✕</button>
+        </article>
+
+        <button class="limpar" (click)="limpar()">Esvaziar carrinho</button>
+      </div>
+
+      <aside class="resumo">
+        <h2>Resumo do pedido</h2>
+        <div class="linha">
+          <span>Subtotal (cartão)</span>
+          <span>{{ total$ | async | currency: 'BRL' }}</span>
+        </div>
+        <div class="linha">
+          <span>Frete</span>
+          <span class="gratis">Calculado no checkout</span>
+        </div>
+        <div class="linha total">
+          <span>Total no PIX</span>
+          <strong>{{ totalPix$ | async | currency: 'BRL' }}</strong>
+        </div>
+        <small>10% de desconto aplicado no pagamento via PIX</small>
+        <button class="btn btn-primario" (click)="finalizar()">Finalizar compra</button>
+        <a routerLink="/" class="btn btn-secundario">Continuar comprando</a>
+      </aside>
+    </div>
+  </ng-container>
+
+  <ng-template #vazio>
+    <div class="estado">
+      <div class="vazio-icone">🛒</div>
+      <h2>Seu carrinho está vazio</h2>
+      <p>Que tal dar uma olhada nas nossas peças?</p>
+      <a routerLink="/" class="btn btn-primario">Ver produtos</a>
+    </div>
+  </ng-template>
+</section>

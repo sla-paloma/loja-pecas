@@ -1,0 +1,25 @@
+<section class="hero">
+  <div class="container hero-conteudo">
+    <div class="hero-texto">
+      <span class="selo">🔥 Semana Hardware</span>
+      <h1>Monte o <span>PC dos seus sonhos</span></h1>
+      <p>As melhores peças com até 10% OFF no PIX e parcelamento em 10x sem juros.</p>
+      <a href="#produtos" class="btn btn-primario">Ver ofertas</a>
+    </div>
+    <div class="hero-visual">🖥️</div>
+  </div>
+</section>
+
+<section class="container beneficios">
+  <div class="beneficio" *ngFor="let b of beneficios">
+    <span class="beneficio-icone">{{ b.icone }}</span>
+    <div>
+      <strong>{{ b.titulo }}</strong>
+      <small>{{ b.texto }}</small>
+    </div>
+  </div>
+</section>
+
+<div id="produtos">
+  <app-lista-produtos></app-lista-produtos>
+</div>

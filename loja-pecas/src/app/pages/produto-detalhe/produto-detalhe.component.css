@@ -1,0 +1,42 @@
+.detalhe { padding-top: 32px; }
+.migalha { color: var(--muted); font-size: 0.85rem; margin-bottom: 24px; }
+.migalha a:hover { color: var(--primary); }
+
+.detalhe-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+@media (max-width: 800px) { .detalhe-grid { grid-template-columns: 1fr; } }
+
+.detalhe-imagem {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 420px;
+  font-size: 10rem;
+  background: radial-gradient(circle at 50% 40%, #2a2a38, var(--bg-2));
+  border: 1px solid var(--borda);
+  border-radius: 16px;
+}
+
+.detalhe-info { display: flex; flex-direction: column; gap: 16px; }
+.categoria { color: var(--primary); text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
+h1 { font-size: 2rem; line-height: 1.2; }
+.descricao { color: var(--muted); }
+
+.caixa-preco {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-left: 4px solid var(--verde);
+  border-radius: var(--raio);
+  padding: 18px 20px;
+  display: flex; flex-direction: column;
+}
+.pix-label { color: var(--muted); font-size: 0.85rem; }
+.preco-pix { font-size: 2.4rem; color: var(--verde); }
+.caixa-preco small { color: var(--muted); }
+
+.estoque { color: var(--verde); font-weight: 600; font-size: 0.9rem; }
+.estoque.baixo { color: var(--primary); }
+
+.specs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; color: var(--muted); font-size: 0.9rem; }
+.acoes { display: flex; gap: 12px; flex-wrap: wrap; }
+.acoes .btn { flex: 1; min-width: 180px; }
+
+.btn-voltar { background: none; border: none; color: var(--muted); text-align: left; font-size: 0.9rem; }
+.btn-voltar:hover { color: var(--primary); }

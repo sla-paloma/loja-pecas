@@ -1,0 +1,59 @@
+.pagina-carrinho { padding-top: 40px; }
+h1 { font-size: 2rem; margin-bottom: 24px; }
+
+.carrinho-grid { display: grid; grid-template-columns: 1fr 340px; gap: 24px; align-items: start; }
+@media (max-width: 900px) { .carrinho-grid { grid-template-columns: 1fr; } }
+
+.lista-itens { display: flex; flex-direction: column; gap: 12px; }
+
+.item {
+  display: grid;
+  grid-template-columns: 64px 1fr auto auto 32px;
+  align-items: center;
+  gap: 16px;
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 14px 18px;
+}
+@media (max-width: 600px) { .item { grid-template-columns: 56px 1fr 32px; } .quantidade, .item-preco { grid-column: 2; } }
+
+.item-icone { font-size: 2.2rem; text-align: center; background: var(--bg-2); border-radius: 10px; padding: 8px; }
+.item-info a { font-weight: 600; }
+.item-info a:hover { color: var(--primary); }
+.item-info small { display: block; color: var(--muted); }
+
+.quantidade { display: flex; align-items: center; gap: 4px; background: var(--bg-2); border-radius: 8px; padding: 4px; }
+.quantidade button {
+  width: 30px; height: 30px;
+  background: var(--borda); color: var(--texto);
+  border: none; border-radius: 6px; font-size: 1rem;
+}
+.quantidade button:hover:not(:disabled) { background: var(--primary); }
+.quantidade button:disabled { opacity: 0.4; cursor: not-allowed; }
+.quantidade span { min-width: 30px; text-align: center; font-weight: 700; }
+
+.item-preco { min-width: 110px; text-align: right; }
+.remover { background: none; border: none; color: var(--muted); font-size: 1.1rem; }
+.remover:hover { color: #ef4444; }
+.limpar { align-self: flex-start; background: none; border: none; color: var(--muted); text-decoration: underline; font-size: 0.85rem; }
+.limpar:hover { color: #ef4444; }
+
+.resumo {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 22px;
+  display: flex; flex-direction: column; gap: 14px;
+  position: sticky; top: 100px;
+}
+.resumo h2 { font-size: 1.2rem; }
+.linha { display: flex; justify-content: space-between; color: var(--muted); }
+.gratis { color: var(--texto); font-size: 0.85rem; }
+.linha.total { color: var(--texto); border-top: 1px solid var(--borda); padding-top: 14px; font-weight: 600; }
+.linha.total strong { font-size: 1.6rem; color: var(--verde); }
+.resumo small { color: var(--muted); font-size: 0.78rem; }
+
+.vazio-icone { font-size: 4rem; margin-bottom: 8px; }
+.estado h2 { color: var(--texto); margin-bottom: 6px; }
+.estado .btn { margin-top: 20px; }

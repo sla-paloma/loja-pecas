@@ -1,0 +1,5 @@
+.footer { margin-top: 80px; border-top: 1px solid var(--borda); background: var(--bg-2); padding: 32px 0; }
+.footer-conteudo { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.logo { font-size: 1.3rem; font-weight: 800; }
+.logo span { color: var(--primary); }
+p { color: var(--muted); font-size: 0.85rem; }
